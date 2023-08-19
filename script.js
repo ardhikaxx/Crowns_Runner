@@ -11,6 +11,9 @@ function randomChoice(array){
 var crownIcon = new Image();
 crownIcon.src = 'assets/icon/crown.png';
 
+var logoImage = new Image();
+logoImage.src = 'assets/icon/Crowns Runner Logo.png';
+
 var CrownsRunner = Sketch.create({
   fullscreen: false,
   width: 640,
@@ -338,6 +341,10 @@ CrownsRunner.update = function() {
 
 CrownsRunner.draw = function () {
   this.player.draw();
+
+  var logoWidth = 100; // Adjust the logo width to make it larger
+  var logoHeight = logoImage.height * (logoWidth / logoImage.width); // Maintain aspect ratio
+  this.drawImage(logoImage, -5, -5, logoWidth, logoHeight);
 
   if (this.jumpCount >= 10) {
     var crownWidth = this.player.width; // Use player's width as the crown width
